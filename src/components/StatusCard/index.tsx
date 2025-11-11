@@ -14,13 +14,13 @@ export const StatusCard = ({ task }: StatusCardProps) => {
   };
 
   return (
-    <div className="border border-gray-200 rounded-lg p-4 bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-200 cursor-move">
+    <div className="border border-gray-200 rounded-lg p-4 bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-200">
       <div className="flex gap-3 items-center justify-between">
         <button
           type="button"
           onClick={handleMoveLeft}
           className="bg-orange-100 text-orange-700 rounded-lg p-2 hover:bg-orange-200 active:bg-orange-300 transition-colors flex-shrink-0 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-orange-100"
-          aria-label="Move task left"
+          aria-label={`Move "${task.title}" left`}
           disabled={task.status === "Todo"}
         >
           <ArrowLeftIcon className="w-5 h-5" />
@@ -32,7 +32,7 @@ export const StatusCard = ({ task }: StatusCardProps) => {
           type="button"
           onClick={handleMoveRight}
           className="bg-emerald-100 text-emerald-700 rounded-lg p-2 hover:bg-emerald-200 active:bg-emerald-300 transition-colors flex-shrink-0 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-emerald-100"
-          aria-label="Move task right"
+          aria-label={`Move "${task.title}" right`}
           disabled={task.status === "Done"}
         >
           <ArrowRightIcon className="w-5 h-5" />

@@ -41,7 +41,7 @@ export function TasksProvider({ children }: { children: ReactNode }) {
     if (!title.trim()) return;
 
     const newTask: Task = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       title: title.trim(),
       status: "Todo",
     };
@@ -84,12 +84,13 @@ export function TasksProvider({ children }: { children: ReactNode }) {
     []
   );
 
+  const value = useMemo(
+    () => ({ tasks, getTasksByStatus, addTask, moveTask, updateTaskStatus }),
+    [tasks, getTasksByStatus, addTask, moveTask, updateTaskStatus]
+  );
+
   return (
-    <TasksContext.Provider
-      value={{ tasks, getTasksByStatus, addTask, moveTask, updateTaskStatus }}
-    >
-      {children}
-    </TasksContext.Provider>
+    <TasksContext.Provider value={value}>{children}</TasksContext.Provider>
   );
 }
 

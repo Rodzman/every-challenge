@@ -22,7 +22,7 @@ export type TaskStatus = "Todo" | "In Progress" | "Done";
  *
  * @interface Task
  *
- * @property {string} id - Unique identifier for the task (typically generated using timestamp)
+ * @property {string} id - Unique identifier for the task (typically generated using a universally unique identifier (UUID) or other robust strategy)
  * @property {string} title - Human-readable title/description of the task
  * @property {TaskStatus} status - Current status of the task in the workflow
  *

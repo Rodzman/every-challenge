@@ -5,10 +5,11 @@ import { getColumnStyles } from "./utils";
 
 export const StatusColumn = ({ status }: StatusColumnProps) => {
   const tasks = useTasksByStatus(status);
+  const headingId = `${status.replace(/\s+/g, "-").toLowerCase()}-heading`;
 
   return (
-    <div className={getColumnStyles(status)}>
-      <h2 className="text-xl font-semibold text-center mb-5 text-gray-800 pb-3 border-b border-gray-200">
+    <section aria-labelledby={headingId} className={getColumnStyles(status)}>
+      <h2 id={headingId} className="text-xl font-semibold text-center mb-5 text-gray-800 pb-3 border-b border-gray-200">
         {status}
       </h2>
       <div className="flex flex-col gap-3 flex-1 min-h-0 overflow-y-auto">
@@ -20,6 +21,6 @@ export const StatusColumn = ({ status }: StatusColumnProps) => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
