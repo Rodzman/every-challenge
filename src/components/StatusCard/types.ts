@@ -1,5 +1,5 @@
-import type { Task } from '../../types';
+import type { Task } from "../../types";
 
 export type StatusCardProps = {
-    task: Task;
+	task: Task;
 };
